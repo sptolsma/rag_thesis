@@ -1,0 +1,30 @@
+Assessment:
+AFFECTED
+
+Supporting evidence:
+Evidence 1 confirms that OpenWrt 25.12.5 (TARGET: armsr/armv8) includes 
+Linux kernel version "6.12.94". Evidence 2 provides NVD vulnerability 
+criteria for CVE-2026-23066 which lists a generic Linux kernel CPE with a 
+`versionStartIncluding` of "4.11" and a `versionEndExcluding` of "6.18.8", 
+where the version is marked as vulnerable ("vulnerable": true). The target 
+product's kernel version ("6.12.94") falls within this specified range 
+(less than "6.18.8"), satisfying the affected criteria provided in 
+Evidence 2.
+
+Contradictory evidence:
+None found in the retrieved evidence to indicate that kernel version 
+"6.12.94" is excluded from or patched before the defined cutoff of 
+"6.18.8".
+
+Missing information or uncertainty:
+Evidence 4 references a specific fix commit hash (`8fd3b5e...`) but does 
+not explicitly map it to the "6.12.94" version string found in Evidence 1. 
+While NVD (Evidence 2) defines a range, there is no direct confirmation 
+within the provided evidence that "6.12.94" was specifically patched by 
+the `8fd3b5e` commit referenced in Evidence 4, though it falls within the 
+general vulnerable window defined by Evidence 2.
+
+Sources:
+Evidence 1 (OpenWrt SBOM)
+Evidence 2 (NVD)
+Evidence 4 (Linux CNA)
