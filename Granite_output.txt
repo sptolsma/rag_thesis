@@ -1,0 +1,19 @@
+Assessment:
+AFFECTED
+
+Patch/fix evidence:
+The vulnerability CVE-2026-23066 was fixed in Linux kernel version 8.7.0, 
+as indicated by the patches applied in git commit hashes: 
+https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?idhttps://git.kerne.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=930114425065f7ace6e0c0630fab4af75e059ea8 and 
+https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?idhttps://git.kernel.org/pub/scmlinux/kernel/git/stable/linux.git/commit/?id=8fd3b5e297854a4da0f273169baf4b1b7b257b97. These commits contain the 
+patches that address the unconditional requeue issue in the rxrpc_recvmsg 
+function.
+
+Contradictory evidence:
+None provided.
+
+Missing information or uncertainty:
+None provided.
+
+Sources:
+OpenWrt SBOM, NVD, Linux CNA.
