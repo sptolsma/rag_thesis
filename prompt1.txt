@@ -1,269 +1,259 @@
+
 You are assisting a product-security analyst performing
-... vulnerability triage.
-... 
-... Candidate vulnerability:
-... CVE-2026-23066
-... 
-... Product:
-... OpenWrt 25.12.5 armsr/armv8
-... 
-... Component:
-... Linux kernel 6.12.94
-... 
-... QUESTION:
-... 
-... Does CVE-2026-23066 appear to affect this product?
-... 
-... Using ONLY the evidence supplied below, return:
-... 
-... Assessment:
-... AFFECTED / NOT AFFECTED / INSUFFICIENT EVIDENCE
-... 
-... Supporting evidence:
-... 
-... Patch/fix evidence:
-... 
-... Contradictory evidence:
-... 
-... Missing information or uncertainty:
-... 
-... Sources:
-... 
-... Do not make claims that are unsupported by the supplied evidence.
-... 
-... RETRIEVED EVIDENCE:
-... 
-... 
-... EVIDENCE 1
-... Source: OpenWrt SBOM
-... 
-... SOURCE: Official OpenWrt CycloneDX SBOM
-... PRODUCT: OpenWrt 25.12.5
-... TARGET: armsr/armv8
-... CVE UNDER INVESTIGATION: CVE-2026-23066
-... 
-... RELEVANT COMPONENT:
-... 
-... [
-...   {
-...     "name": "kernel",
-...     "type": "operating-system",
-...     "licenses": [
-...       {
-...         "license": {
-...           "name": "GPL-2.0"
-...         }
-...       }
-...     ],
-...     "cpe": "cpe:/o:linux:linux_kernel:6.12.94",
-...     "version": "6.12.94"
-...   }
-... ]
-... 
-... -----------------------------
-... 
-... EVIDENCE 2
-... Source: NVD
-... 
-... 3:o:linux:linux_kernel:*:*:*:*:*:*:*:*",
-...             "versionStartIncluding": "4.11",
-...             "versionEndExcluding": "6.18.8",
-...             "matchCriteriaId": "A85A6630-48F5-47FB-9871-DB4D2269F664"
-...           },
-...           {
-...             "vulnerable": true,
-...             "criteria": "cpe:2.3:o:linux:linux_kernel:6.19:rc1:*:*:*:*:*:*",
-... 
-...             "matchCriteriaId": "17B67AA7-40D6-4AFA-8459-F200F3D7CFD1"
-...           },
-...           {
-...             "vulnerable": true,
-...             "criteria": "cpe:2.3:o:linux:linux_kernel:6.19:rc2:*:*:*:*:*:*",
-... 
-...             "matchCriteriaId": "C47E4CC9-C826-4FA9-B014-7FE3D9B318B2"
-...           },
-...           {
-...             "vulnerable": true,
-...             "criteria": "cpe:2.3:o:linux:linux_kernel:6.19:rc3:*:*:*:*:*:*",
-... 
-...             "matchCriteriaId": "F71D92C0-C023-48BD-B3B6-70B638EEE298"
-...           },
-...           {
-...             "vulnerable": true,
-...             "criteria": "cpe:2.3:o:linux:linux_kernel:6.19:rc4:*:*:*:*:*:*",
-... 
-...             "matchCriteriaId": "13580667-0A98-40CC-B29F-D12790B91BDB"
-...           },
-...           {
-...             "vulnerable": true,
-...             "criteria": "cpe:2.3:o:linux:linux_kernel:6.19:rc5:*:*:*:*:*:*",
-... 
-...             "matchCriteriaId": "CAD1FED7-CF48-47BF-AC7D-7B6FA3C065FC"
-...           },
-...           {
-...             "vulnerable": true,
-...             "criteria": "cpe:2.3:o:linux:linux_kernel:6.
-... 
-... -----------------------------
-... 
-... EVIDENCE 3
-... Source: NVD
-... 
-... {
-...             "vulnerable": true,
-...             "criteria": "cpe:2.3:o:linux:linux_kernel:6.19:rc6:*:*:*:*:*:*",
-... 
-...             "matchCriteriaId": "3EF854A1-ABB1-4E93-BE9A-44569EC76C0D"
-...           }
-...         ]
-...       }
-...     ]
-...   }
-... ]
-... 
-... REFERENCES:
-... [
-...   {
-...     "url": "https://git.kernel.org/stable/c/0464bf75590da75b8413c3e758c04647
-... b4cdb3c6",
-...     "source": "416baaa9-dc9f-4396-8d5f-8c081fb06d67"
-...   },
-...   {
-...     "url": "https://git.kernel.org/stable/c/2c28769a51deb6022d7fbd499987e237
-... a01dd63a",
-...     "source": "416baaa9-dc9f-4396-8d5f-8c081fb06d67",
-...     "tags": [
-...       "Patch"
-...     ]
-...   },
-...   {
-...     "url": "https://git.kernel.org/stable/c/8fd3b5e297854a4da0f273169baf4b1b
-... 7b257b97",
-...     "source": "416baaa9-dc9f-4396-8d5f-8c081fb06d67"
-...   },
-...   {
-...     "url": "https://git.kernel.org/stable/c/930114425065f7ace6e0c0630fab4af7
-... 5e059ea8",
-...     "source": "416baaa9-dc9f-4396-8d5f-8c081fb06d67",
-...     "tags": [
-...       "Patch"
-...     ]
-...   },
-...   {
-...     "url": "https://git.kernel.org/stable/c/c198628f3fca5c874d93874c233014d3
-... 36e09f64",
-...     "source": "416baaa9-dc9f-4396-8d5f-8c081fb06d67"
-...   },
-... 
-... -----------------------------
-... 
-... EVIDENCE 4
-... Source: Linux CNA
-... 
-... SOURCE: Linux Kernel CNA
-... CVE: CVE-2026-23066
-... 
-... TITLE:
-... rxrpc: Fix recvmsg() unconditional requeue
-... 
-... DESCRIPTION:
-... In the Linux kernel, the following vulnerability has been resolved:
-... 
-... rxrpc: Fix recvmsg() unconditional requeue
-... 
-... If rxrpc_recvmsg() fails because MSG_DONTWAIT was specified but the call at
-... the front of the recvmsg queue already has its mutex locked, it requeues
-... the call - whether or not the call is already queued.  The call may be on
-... the queue because MSG_PEEK was also passed and so the call was not dequeued
-... or because the I/O thread requeued it.
-... 
-... The unconditional requeue may then corrupt the recvmsg queue, leading to
-... things like UAFs or refcount underruns.
-... 
-... Fix this by only requeuing the call if it isn't already on the queue - and
-... moving it to the front if it is already queued.  If we don't queue it, we
-... have to put the ref we obtained by dequeuing it.
-... 
-... Also, MSG_PEEK doesn't dequeue the call so shouldn't call
-... rxrpc_notify_socket() for the call if we didn't use up all the data on the
-... queue, so fix that also.
-... 
-... AFFECTED / FIXED VERSIONS:
-... [
-...   {
-...     "product": "Linux",
-...     "vendor": "Linux",
-...     "defaultStatus": "unaffected",
-...     "repo": "https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.gi
-... t",
-...     "programFiles": [
-...       "include/trace/events/rxrpc.h",
-...       "net/rxrpc/recvmsg.c"
-...     ],
-...     "versions": [
-...       {
-...         "version": "540b1c48c37ac0ad66212004db21e1ff7e2d78be",
-...         "lessThan": "8fd3b5e297854a4da0f273169baf4b1b7b257b97",
-...         "status": "affected",
-...         "versionType": "git"
-...       },
-...       {
-...         "version": "540b1c48c37ac0ad66212004db21e1ff7e2d78be",
-... 
-... -----------------------------
-... 
-... EVIDENCE 5
-... Source: NVD
-... 
-... SOURCE: NVD
-... CVE: CVE-2026-23066
-... 
-... DESCRIPTION:
-... In the Linux kernel, the following vulnerability has been resolved:
-... 
-... rxrpc: Fix recvmsg() unconditional requeue
-... 
-... If rxrpc_recvmsg() fails because MSG_DONTWAIT was specified but the call at
-... the front of the recvmsg queue already has its mutex locked, it requeues
-... the call - whether or not the call is already queued.  The call may be on
-... the queue because MSG_PEEK was also passed and so the call was not dequeued
-... or because the I/O thread requeued it.
-... 
-... The unconditional requeue may then corrupt the recvmsg queue, leading to
-... things like UAFs or refcount underruns.
-... 
-... Fix this by only requeuing the call if it isn't already on the queue - and
-... moving it to the front if it is already queued.  If we don't queue it, we
-... have to put the ref we obtained by dequeuing it.
-... 
-... Also, MSG_PEEK doesn't dequeue the call so shouldn't call
-... rxrpc_notify_socket() for the call if we didn't use up all the data on the
-... queue, so fix that also.
-... 
-... METRICS:
-... {
-...   "cvssMetricV31": [
-...     {
-...       "source": "416baaa9-dc9f-4396-8d5f-8c081fb06d67",
-...       "type": "Secondary",
-...       "cvssData": {
-...         "version": "3.1",
-...         "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
-...         "baseScore": 7.8,
-...         "baseSeverity": "HIGH",
-...         "attackVector": "LOCAL",
-...         "attackComplexity": "LOW",
-...         "privilegesRequired": "LOW",
-...         "userInteraction": "NONE",
-...         "scope": "UNCHANGED",
-...         "confidentialityImpact": "HIGH",
-...         "integrityImpact": "HIGH",
-...         "availabilityImpact": "HIGH"
-...       },
-...       "exploitabilityScore": 1.8,
-...       "impactScore": 5.9
-...     },
-...     {
-...       "source": "nvd@nist.gov",
-... 
-... -----------------------------
+vulnerability triage.
+
+Candidate vulnerability:
+CVE-2026-23066
+
+Product:
+OpenWrt 25.12.5 armsr/armv8
+
+Component:
+Linux kernel 6.12.94
+
+QUESTION:
+
+Does CVE-2026-23066 appear to affect this product?
+
+Using ONLY the evidence supplied below, return:
+
+Assessment:
+AFFECTED / NOT AFFECTED / INSUFFICIENT EVIDENCE
+
+Supporting evidence:
+
+Patch/fix evidence:
+
+Contradictory evidence:
+
+Missing information or uncertainty:
+
+Sources:
+
+Do not make claims that are unsupported by the supplied evidence.
+
+RETRIEVED EVIDENCE:
+
+
+EVIDENCE 1
+Source: OpenWrt SBOM
+
+SOURCE: Official OpenWrt CycloneDX SBOM
+PRODUCT: OpenWrt 25.12.5
+TARGET: armsr/armv8
+CVE UNDER INVESTIGATION: CVE-2026-23066
+
+RELEVANT COMPONENT:
+
+[
+  {
+    "name": "kernel",
+    "type": "operating-system",
+    "licenses": [
+      {
+        "license": {
+          "name": "GPL-2.0"
+        }
+      }
+    ],
+    "cpe": "cpe:/o:linux:linux_kernel:6.12.94",
+    "version": "6.12.94"
+  }
+]
+
+-----------------------------
+
+EVIDENCE 2
+Source: NVD
+
+3:o:linux:linux_kernel:*:*:*:*:*:*:*:*",
+            "versionStartIncluding": "4.11",
+            "versionEndExcluding": "6.18.8",
+            "matchCriteriaId": "A85A6630-48F5-47FB-9871-DB4D2269F664"
+          },
+          {
+            "vulnerable": true,
+            "criteria": "cpe:2.3:o:linux:linux_kernel:6.19:rc1:*:*:*:*:*:*",
+            "matchCriteriaId": "17B67AA7-40D6-4AFA-8459-F200F3D7CFD1"
+          },
+          {
+            "vulnerable": true,
+            "criteria": "cpe:2.3:o:linux:linux_kernel:6.19:rc2:*:*:*:*:*:*",
+            "matchCriteriaId": "C47E4CC9-C826-4FA9-B014-7FE3D9B318B2"
+          },
+          {
+            "vulnerable": true,
+            "criteria": "cpe:2.3:o:linux:linux_kernel:6.19:rc3:*:*:*:*:*:*",
+            "matchCriteriaId": "F71D92C0-C023-48BD-B3B6-70B638EEE298"
+          },
+          {
+            "vulnerable": true,
+            "criteria": "cpe:2.3:o:linux:linux_kernel:6.19:rc4:*:*:*:*:*:*",
+            "matchCriteriaId": "13580667-0A98-40CC-B29F-D12790B91BDB"
+          },
+          {
+            "vulnerable": true,
+            "criteria": "cpe:2.3:o:linux:linux_kernel:6.19:rc5:*:*:*:*:*:*",
+            "matchCriteriaId": "CAD1FED7-CF48-47BF-AC7D-7B6FA3C065FC"
+          },
+          {
+            "vulnerable": true,
+            "criteria": "cpe:2.3:o:linux:linux_kernel:6.
+
+-----------------------------
+
+EVIDENCE 3
+Source: NVD
+
+{
+            "vulnerable": true,
+            "criteria": "cpe:2.3:o:linux:linux_kernel:6.19:rc6:*:*:*:*:*:*",
+            "matchCriteriaId": "3EF854A1-ABB1-4E93-BE9A-44569EC76C0D"
+          }
+        ]
+      }
+    ]
+  }
+]
+
+REFERENCES:
+[
+  {
+    "url": "https://git.kernel.org/stable/c/0464bf75590da75b8413c3e758c04647b4cdb3c6",
+    "source": "416baaa9-dc9f-4396-8d5f-8c081fb06d67"
+  },
+  {
+    "url": "https://git.kernel.org/stable/c/2c28769a51deb6022d7fbd499987e237a01dd63a",
+    "source": "416baaa9-dc9f-4396-8d5f-8c081fb06d67",
+    "tags": [
+      "Patch"
+    ]
+  },
+  {
+    "url": "https://git.kernel.org/stable/c/8fd3b5e297854a4da0f273169baf4b1b7b257b97",
+    "source": "416baaa9-dc9f-4396-8d5f-8c081fb06d67"
+  },
+  {
+    "url": "https://git.kernel.org/stable/c/930114425065f7ace6e0c0630fab4af75e059ea8",
+    "source": "416baaa9-dc9f-4396-8d5f-8c081fb06d67",
+    "tags": [
+      "Patch"
+    ]
+  },
+  {
+    "url": "https://git.kernel.org/stable/c/c198628f3fca5c874d93874c233014d336e09f64",
+    "source": "416baaa9-dc9f-4396-8d5f-8c081fb06d67"
+  },
+
+-----------------------------
+
+EVIDENCE 4
+Source: Linux CNA
+
+SOURCE: Linux Kernel CNA
+CVE: CVE-2026-23066
+
+TITLE:
+rxrpc: Fix recvmsg() unconditional requeue
+
+DESCRIPTION:
+In the Linux kernel, the following vulnerability has been resolved:
+
+rxrpc: Fix recvmsg() unconditional requeue
+
+If rxrpc_recvmsg() fails because MSG_DONTWAIT was specified but the call at
+the front of the recvmsg queue already has its mutex locked, it requeues
+the call - whether or not the call is already queued.  The call may be on
+the queue because MSG_PEEK was also passed and so the call was not dequeued
+or because the I/O thread requeued it.
+
+The unconditional requeue may then corrupt the recvmsg queue, leading to
+things like UAFs or refcount underruns.
+
+Fix this by only requeuing the call if it isn't already on the queue - and
+moving it to the front if it is already queued.  If we don't queue it, we
+have to put the ref we obtained by dequeuing it.
+
+Also, MSG_PEEK doesn't dequeue the call so shouldn't call
+rxrpc_notify_socket() for the call if we didn't use up all the data on the
+queue, so fix that also.
+
+AFFECTED / FIXED VERSIONS:
+[
+  {
+    "product": "Linux",
+    "vendor": "Linux",
+    "defaultStatus": "unaffected",
+    "repo": "https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git",
+    "programFiles": [
+      "include/trace/events/rxrpc.h",
+      "net/rxrpc/recvmsg.c"
+    ],
+    "versions": [
+      {
+        "version": "540b1c48c37ac0ad66212004db21e1ff7e2d78be",
+        "lessThan": "8fd3b5e297854a4da0f273169baf4b1b7b257b97",
+        "status": "affected",
+        "versionType": "git"
+      },
+      {
+        "version": "540b1c48c37ac0ad66212004db21e1ff7e2d78be",
+
+-----------------------------
+
+EVIDENCE 5
+Source: NVD
+
+SOURCE: NVD
+CVE: CVE-2026-23066
+
+DESCRIPTION:
+In the Linux kernel, the following vulnerability has been resolved:
+
+rxrpc: Fix recvmsg() unconditional requeue
+
+If rxrpc_recvmsg() fails because MSG_DONTWAIT was specified but the call at
+the front of the recvmsg queue already has its mutex locked, it requeues
+the call - whether or not the call is already queued.  The call may be on
+the queue because MSG_PEEK was also passed and so the call was not dequeued
+or because the I/O thread requeued it.
+
+The unconditional requeue may then corrupt the recvmsg queue, leading to
+things like UAFs or refcount underruns.
+
+Fix this by only requeuing the call if it isn't already on the queue - and
+moving it to the front if it is already queued.  If we don't queue it, we
+have to put the ref we obtained by dequeuing it.
+
+Also, MSG_PEEK doesn't dequeue the call so shouldn't call
+rxrpc_notify_socket() for the call if we didn't use up all the data on the
+queue, so fix that also.
+
+METRICS:
+{
+  "cvssMetricV31": [
+    {
+      "source": "416baaa9-dc9f-4396-8d5f-8c081fb06d67",
+      "type": "Secondary",
+      "cvssData": {
+        "version": "3.1",
+        "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+        "baseScore": 7.8,
+        "baseSeverity": "HIGH",
+        "attackVector": "LOCAL",
+        "attackComplexity": "LOW",
+        "privilegesRequired": "LOW",
+        "userInteraction": "NONE",
+        "scope": "UNCHANGED",
+        "confidentialityImpact": "HIGH",
+        "integrityImpact": "HIGH",
+        "availabilityImpact": "HIGH"
+      },
+      "exploitabilityScore": 1.8,
+      "impactScore": 5.9
+    },
+    {
+      "source": "nvd@nist.gov",
+
+-----------------------------
+
